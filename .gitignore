@@ -89,3 +89,6 @@ typings/
 
 # Twitter new archive tweet list
 tweet.js
+
+# Config
+config.js
