@@ -1,6 +1,6 @@
 tweet-new-archive-cleaner
 =========================
-Tweet cleaner using newly-structed Twitter archive
+Tweet cleaner using newly-structured Twitter archive
 
 How to use
 ----------
