@@ -1,0 +1,11 @@
+{
+  "name": "tweet-new-archive-cleaner",
+  "version": "0.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SD SkyKlouD",
+  "license": "SEE LICENSE IN LICENSE"
+}
