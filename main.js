@@ -1,6 +1,6 @@
 const config    = require("./config.js");
 const fs        = require("fs");
-const tweetList = JSON.parse(fs.readFileSync("./tweet.js").toString().replace(config.jsonFix, "")).map(v => v.id_str);
+const tweetList = JSON.parse(fs.readFileSync("./tweet.js").toString().replace(config.jsonFix, ""));
 const twitter   = new require("twit")({
     consumer_key:        config.consumerKey,
     consumer_secret:     config.consumerSecret,
@@ -8,14 +8,38 @@ const twitter   = new require("twit")({
     access_token_secret: config.accessTokenSecret
 });
 
-tweetList.forEach(e => {
-    console.log("deleting tweet id : " + e);
+const PROCESS_DELAY_MS = 50;
+const SKIP_TWEETS_CONTAINING_MEDIA = true;
 
-    twitter.post("statuses/destroy/:id", { id: e }, (err) => {
+async function main() {
+    for(tweet in tweetList) {
+        await iterate(tweetList[tweet]);
+    }
+}
+
+async function iterate(e) {
+    console.log("deleting tweet id : " + e.id_str);
+
+    if(e.full_text.match(/^RT \@.+: /) === null) {
+        if(SKIP_TWEETS_CONTAINING_MEDIA) {
+            if(typeof(e.entities) !== "undefined" && typeof(e.entities.media) !== "undefined") {
+                console.log("ㄴ Skipping media-containing tweet");
+                return;
+            }
+        }
+    } else {
+        console.log("ㄴ RT tweet; will be processed unconditionally");
+    }
+
+    twitter.post("statuses/destroy/:id", { id: e.id_str }, (err) => {
         if(err) {
             console.error("deleting error : ", err);
         } else {
-            console.log("deleted : " + e);
+            console.log("deleted : " + e.id_str);
         }
     });
-});
+
+    return new Promise(res => setTimeout(res, PROCESS_DELAY_MS));
+}
+
+main();
