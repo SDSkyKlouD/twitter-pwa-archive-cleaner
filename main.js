@@ -12,8 +12,8 @@ const PROCESS_DELAY_MS = 50;
 const SKIP_TWEETS_CONTAINING_MEDIA = true;
 
 async function main() {
-    for(tweet in tweetList) {
-        await iterate(tweetList[tweet]);
+    for(index in tweetList) {
+        await iterate(tweetList[index]);
     }
 }
 
