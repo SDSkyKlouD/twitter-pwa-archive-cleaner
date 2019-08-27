@@ -1,0 +1,6 @@
+{
+    "jsonFix": "window.YTD.tweet.part0 = ",
+    "delayMs": 100,
+
+    "skipTweetsContainingMedia": false
+}

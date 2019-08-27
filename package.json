@@ -2,9 +2,10 @@
   "name": "twitter-pwa-archive-cleaner",
   "version": "0.0.0",
   "description": "Tweet cleaner using Twitter data archive (new format)",
-  "main": "src/main.js",
+  "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
+    "start": "ts-node src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SD SkyKlouD",
@@ -17,11 +18,16 @@
     "url": "https://github.com/SDSkyKlouD/twitter-pwa-archive-cleaner/issues"
   },
   "dependencies": {
+    "fs-extra": "^8.1.0",
     "twit": "^2.2.11"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.0",
     "@types/twit": "^2.2.22",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "eslint": "^6.2.2",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }
 }
