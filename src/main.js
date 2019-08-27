@@ -1,6 +1,6 @@
 const config    = require("./config.js");
 const fs        = require("fs");
-const tweetList = JSON.parse(fs.readFileSync("./tweet.js").toString().replace(config.jsonFix, ""));
+const tweetList = JSON.parse(fs.readFileSync("../tweet.js").toString().replace(config.jsonFix, ""));
 const twitter   = new require("twit")({
     consumer_key:        config.consumerKey,
     consumer_secret:     config.consumerSecret,
@@ -12,7 +12,7 @@ const PROCESS_DELAY_MS = 50;
 const SKIP_TWEETS_CONTAINING_MEDIA = true;
 
 async function main() {
-    for(index in tweetList) {
+    for(var index in tweetList) {
         await iterate(tweetList[index]);
     }
 }
@@ -20,7 +20,7 @@ async function main() {
 async function iterate(e) {
     console.log("deleting tweet id : " + e.id_str);
 
-    if(e.full_text.match(/^RT \@.+: /) === null) {
+    if(e.full_text.match(/^RT @.+: /) === null) {
         if(SKIP_TWEETS_CONTAINING_MEDIA) {
             if(typeof(e.entities) !== "undefined" && typeof(e.entities.media) !== "undefined") {
                 console.log("ㄴ Skipping media-containing tweet");
