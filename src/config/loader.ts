@@ -1,6 +1,6 @@
 import { readJsonSync } from "fs-extra";
 
-//#region Config Types
+// #region Config Types
 export interface Configuration {
     jsonFix: string;
     delayMs: number;
@@ -16,9 +16,9 @@ export interface SecretConfiguration {
         accessSecret: string;
     };
 }
-//#endregion
+// #endregion
 
-//#region Module default export
+// #region Module default export
 export default function loadSync(): {
     config: Configuration;
     secret: SecretConfiguration;
@@ -36,4 +36,4 @@ export default function loadSync(): {
 
     return null;
 }
-//#endregion
+// #endregion
