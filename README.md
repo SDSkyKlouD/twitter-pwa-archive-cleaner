@@ -1,5 +1,7 @@
 twitter-pwa-archive-cleaner
 ===========================
+[![Build Status](https://travis-ci.org/SDSkyKlouD/twitter-pwa-archive-cleaner.svg?branch=master)](https://travis-ci.org/SDSkyKlouD/twitter-pwa-archive-cleaner)
+
 Tweet cleaner using newly-structured Twitter data archive.
 
 How to use
