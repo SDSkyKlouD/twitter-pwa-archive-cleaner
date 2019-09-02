@@ -24,8 +24,8 @@ export default function loadSync(): {
     secret: SecretConfiguration;
 } | null {
     try {
-        const config: Configuration = readJsonSync("../../config/config.json");
-        const secret: SecretConfiguration = readJsonSync("../../config/secret.json");
+        const config: Configuration = readJsonSync("config/config.json");
+        const secret: SecretConfiguration = readJsonSync("config/secret.json");
 
         console.debug("Configurations are loaded!");
 
