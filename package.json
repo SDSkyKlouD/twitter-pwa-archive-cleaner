@@ -23,12 +23,12 @@
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "@types/fs-extra": "^8.0.0",
-    "@types/twit": "^2.2.22",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.2.2",
-    "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "@types/fs-extra": "^8.0.1",
+    "@types/twit": "^2.2.23",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "eslint": "^6.8.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
   }
 }
