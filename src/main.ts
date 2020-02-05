@@ -5,6 +5,10 @@ import loadConfig from "./config/loader";
 import Twitter from "twit";
 
 // #region Type definitions
+interface NeededTweetDataParent {
+    tweet: NeededTweetData
+}
+
 interface NeededTweetData {
     id: bigint;
     id_str: string;
@@ -26,7 +30,7 @@ const twitter = new Twitter({
     access_token: config.secret.twitterAuthToken.accessKey,
     access_token_secret: config.secret.twitterAuthToken.accessSecret
 });
-const tweetList: Array<NeededTweetData> = JSON.parse(readFileSync("./tweet.js").toString().replace(config.config.jsonFix, ""));
+const tweetList: Array<NeededTweetDataParent> = JSON.parse(readFileSync("./tweet.js").toString().replace(config.config.jsonFix, ""));
 // #endregion
 
 // #region Functions
@@ -53,7 +57,7 @@ async function process(data: NeededTweetData): Promise<void> {
 
 async function main(): Promise<void> {
     for(const value of tweetList) {
-        await process(value);
+        await process(value.tweet);
     }
 }
 
