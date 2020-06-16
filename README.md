@@ -8,6 +8,7 @@ Prerequisites
 -------------
   - Tokens of your Twitter application
   - Tokens of your account for the Twitter application
+  - Node.js (v10 or up)
   
 How to use
 ----------
